@@ -7,8 +7,8 @@ This application is about making CRUD operations for the cars.
 
 ## Prerequisites
 * Node js
-* SQLite
-  * Download the [SQLite](https://sqlitebrowser.org/) database on your pc.
+* SQLite browser(https://sqlitebrowser.org/)(optional)
+  
 
 <br>
 
@@ -40,7 +40,7 @@ node server.js
 
 ### Get all the bikes
 ```bash
-curl http://localhost:3000/tshirts
+curl http://localhost:3000/bikes
 ```
 ```json
 {
@@ -131,3 +131,14 @@ curl -X DELETE http://localhost:3000/bikes/3
 ## Other tools used
 
 * Used [Postman](https://www.postman.com/downloads/) for generating http requests to the server and got responses through [knex-npm](https://www.npmjs.com/package/knex) (querybuilder for sqlite database).
+
+## Things I have learnt
+* Knex which is a special package manager of node use to build queries for the database engines such as PostgreSQL,MySQL,SQLite,etc.It enables us to connect the server to the SQLite database and add write the queries for SQLite.
+
+* Javascript Async and await for returning the promise.
+
+* SQLite database browser  for persisting the data.
+
+<br>
+
+Courtesy and followed the video on [Youtube](https://youtu.be/cr3pX6fSUpc)
