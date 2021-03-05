@@ -16,6 +16,6 @@ module.exports = {
     quotes: ['error', 'single'],
     semi: ['error', 'always'],
     indent: ['error', 2],
-    no-multi-spaces: ['error'],
+    no-multi-spaces: ['error']
   },
 };
