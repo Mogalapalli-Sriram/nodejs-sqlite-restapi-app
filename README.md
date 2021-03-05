@@ -7,7 +7,7 @@ This application is about making CRUD operations for the cars.
 
 ## Prerequisites
 * Node js
-* SQLite browser(https://sqlitebrowser.org/)(optional)
+* [SQLite browser](https://sqlitebrowser.org/)(optional)
   
 
 <br>
@@ -130,7 +130,7 @@ curl -X DELETE http://localhost:3000/bikes/3
 
 ## Other tools used
 
-* Used [Postman](https://www.postman.com/downloads/) for generating http requests to the server and got responses through [knex-npm](https://www.npmjs.com/package/knex) (querybuilder for sqlite database).
+* Used [Postman](https://www.postman.com/downloads/) for generating http requests to the server and got responses through [knex-npm](https://www.npmjs.com/package/knex).
 
 ## Things I have learnt
 * Knex which is a special package manager of node use to build queries for the database engines such as PostgreSQL,MySQL,SQLite,etc.It enables us to connect the server to the SQLite database and add write the queries for SQLite.
