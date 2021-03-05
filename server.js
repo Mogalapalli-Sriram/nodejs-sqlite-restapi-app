@@ -1,6 +1,8 @@
 const express = require('express');
 const db = require('./db/bikes.js');
-
+// const swaggerUi = require("swagger-ui-express");
+// const swaggerDocument = require("./swagger.json");
+// const swaggerJsdoc = require("swagger-jsdoc");
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -28,10 +30,6 @@ app.delete('/bikes/:id', async (req, res) => {
   res.json({ success: `${'bike with id'}${bikeDelete}is deleted` });
 });
 
-// let port = process.env.PORT;
-// if (port == null || port == "") {
-//   port = 3000;
-// }
 
 app.listen(3000 || process.env.PORT, () => {
   console.log('server is running on port number 3000');
