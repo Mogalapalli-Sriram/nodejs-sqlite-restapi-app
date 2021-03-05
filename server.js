@@ -6,31 +6,28 @@ app.use(express.urlencoded({extended:true}));
 app.get("/bikes",  async function(req,res) {
 const getBikes = await db.getAllBikes();
 res.json({getBikes});
-    });
+});
 
 app.post("/bikes" , async function(req,res) {
-    const id =  await db.createBike(req.body);
-    const postDetails = req.body;
-    res.json({success : true,data : postDetails });
-    });
-    
-    app.get("/bikes/:id",  async function(req,res) {
-        const getBike = await db.getBike(req.params.id);
-        res.json({data:getBike});
-        }); 
+const id =  await db.createBike(req.body);
+const postDetails = req.body;
+res.json({success : true,data : postDetails });
+});
+app.get("/bikes/:id",  async function(req,res) {
+const getBike = await db.getBike(req.params.id);
+res.json({data:getBike});
+}); 
+app.patch("/bikes/:id" ,  async function(req,res) {
+const bikeUpdate =  await db.updateBike(req.params.id,req.body);
+res.json({success: "updated bike with id number" + " " + bikeUpdate });
+});
 
-
-    app.patch("/bikes/:id" ,  async function(req,res) {
-    const bikeUpdate =  await db.updateBike(req.params.id,req.body);
-    res.json({bikeUpdate});
-    });
+app.delete("/bikes/:id" , async function(req,res) {
+const bikeDelete = await db.deleteBike(req.params.id);
+res.json({success : true});
     
-    app.delete("/bikes/:id" , async function(req,res) {
-    const bikeDelete = await db.deleteBike(req.params.id);
-    res.json({success : true});
-    
-    });
+});
     
 app.listen(3000, function() {
-    console.log("server is running on port number 3000");
+console.log("server is running on port number 3000");
 });
