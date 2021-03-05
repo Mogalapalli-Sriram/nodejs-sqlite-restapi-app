@@ -28,11 +28,11 @@ app.delete('/bikes/:id', async (req, res) => {
   res.json({ success: `${'bike with id'}${bikeDelete}is deleted` });
 });
 
-let port = process.env.PORT;
-if (port == null || port == "") {
-  port = 3000;
-}
+// let port = process.env.PORT;
+// if (port == null || port == "") {
+//   port = 3000;
+// }
 
-app.listen(port, () => {
+app.listen(3000 || process.env.PORT, () => {
   console.log('server is running on port number 3000');
 });
