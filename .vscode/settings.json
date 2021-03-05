@@ -1,5 +1,14 @@
 {
     "cSpell.ignoreWords": [
-        "querybuilder"
+        "app",
+        "bike",
+        "delete",
+        "nodejs",
+        "querybuilder",
+        "restapi",
+        "sqlite"
+    ],
+    "cSpell.enableFiletypes": [
+        "javascript"
     ]
 }
