@@ -1,7 +1,7 @@
 # nodejs-sqlite-restapi-app
 
 ## About the App
-This application is about making CRUD operations for the cars.
+This application is about making CRUD operations for the bikes.
 
 <br>
 
@@ -33,6 +33,7 @@ npm install
 node server.js
 ```
 2. You can access the app at http://localhost:3000
+3. You can have access to swaggerUi open API documentation at http://localhost:3000/api-docs/
 
 <br>
 
@@ -134,7 +135,7 @@ curl -X DELETE http://localhost:3000/bikes/3
 
 <br>
 
-## Things I have learnt
+## Things I have learnt while doing this application
 * Knex which is a special package manager of node use to build queries for the database engines such as PostgreSQL,MySQL,SQLite,etc.It enables us to connect the server to the SQLite database and add write the queries for SQLite.
 
 * Javascript Async and await for returning the promise.

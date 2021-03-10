@@ -1,9 +1,12 @@
 const express = require('express');
+const cors = require('cors');
 const db = require('./db/bikes.js');
-// const swaggerUi = require("swagger-ui-express");
-// const swaggerDocument = require("./swagger.json");
+const swaggerUi = require("swagger-ui-express");
+const swaggerDocument = require("./swagger.json");
 // const swaggerJsdoc = require("swagger-jsdoc");
+// const swaggerSpec =swaggerJsdoc(swaggerDocument);
 const app = express();
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.get('/bikes', async (req, res) => {
@@ -30,7 +33,7 @@ app.delete('/bikes/:id', async (req, res) => {
   res.json({ success: `${'bike with id'}${bikeDelete}is deleted` });
 });
 
-
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.listen(3000 || process.env.PORT, () => {
   console.log('server is running on port number 3000');
 });

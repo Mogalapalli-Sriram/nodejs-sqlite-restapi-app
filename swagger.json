@@ -1,0 +1,297 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "API for bikes",
+      "description": " open API documentation for the bikes",
+      "contact": {
+        "name": "SRI RAM MOGALAPALLI",
+        "email": "sriramsriram832@gmail.com"
+      },
+      "license": {
+        "name": "MIT"
+      }
+    },
+    "servers": [
+      {
+        "url": "https://localhost:3000",
+        "description": "main server"
+      }
+    ],
+    "tags": [
+      {
+        "name": "bike",
+        "description": "This is the tag named bike which groups all the bike api operations"
+      }
+    ],
+    "paths": {
+        "/bikes": {
+          "summary": "Operations on bikes",
+          "description": "List of all operations on bikes",
+          "get": {
+            "tags": [
+              "bike"
+            ],
+            "summary": "Get all bikes",
+            "description": "Return all the bikes",
+            "operationId": "getBikes",
+            "parameters": [
+              {
+                "name": "sortBy",
+                "in": "query",
+                "description": "sort values",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "asc",
+                    "desc"
+                  ],
+                  "default": "asc"
+                }
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "Successfully returns all the details",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/bike"
+                      }
+                    }
+                  }
+                }
+              },
+              "4XX": {
+                "description": "bad request"
+              },
+              "5XX": {
+                "description": "internal server error"
+              }
+            }
+          },
+          "post": {
+            "tags": [
+              "bike"
+            ],
+            "summary": "add a new bike",
+            "description": "addition of new bike",
+            "operationId": "postBike",
+            "responses": {
+              "201": {
+                "description": "Successfully returns the posted details",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/bike"
+                    }
+                  }
+                }
+              },
+              "4XX": {
+                "description": "bad request"
+              },
+              "5XX": {
+                "description": "internal server error"
+              }
+            },
+            "requestBody": {
+              "description": "The new bike to add",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/bike"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/bikes/{Id}": {
+          "summary": "operations on specific bike",
+          "description": "List of all operations on specific bike",
+          "get": {
+            "tags": [
+              "bike"
+            ],
+            "summary": "get a specific bike",
+            "description": "return a specific bike",
+            "operationId": "getBike",
+            "parameters": [
+              {
+                "name": "Id",
+                "in": "query",
+                "description": "unique bike id",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "successfully return a single bike",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/bike"
+                      }
+                    }
+                  }
+                }
+              },
+              "4XX": {
+                "description": "bad request"
+              },
+              "5XX": {
+                "description": "internal server error"
+              }
+            }
+          },
+          "put": {
+            "tags": [
+              "bike"
+            ],
+            "summary": "update a specific bike",
+            "description": "return a specific updated bike",
+            "operationId": "updateCourse",
+            "parameters": [
+              {
+                "name": "Id",
+                "in": "query",
+                "description": "unique bike id",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "responses": {
+              "201": {
+                "description": "successfully return a single bike",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/bike"
+                      }
+                    }
+                  }
+                }
+              },
+              "4XX": {
+                "description": "bad request"
+              },
+              "5XX": {
+                "description": "internal server error"
+              }
+            },
+            "requestBody": {
+              "description": "The bike to be updated",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/bike"
+                  }
+                }
+              }
+            }
+          },
+          "delete": {
+            "tags": [
+              "bike"
+            ],
+            "summary": "delete a specific bike",
+            "description": "return a specific deleted bike",
+            "operationId": "deleteCourse",
+            "parameters": [
+              {
+                "name": "Id",
+                "in": "query",
+                "description": "unique bike id",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "successfully return a single bike",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/bike"
+                      }
+                    }
+                  }
+                }
+              },
+              "4XX": {
+                "description": "bad request"
+              },
+              "5XX": {
+                "description": "internal server error"
+              }
+            }
+          }
+        }
+      },
+      "components": {
+        "schemas": {
+          "bike": {
+            "type": "object",
+            "description": "bike entries",
+            "properties": {
+              "Id": {
+                "type": "number",
+                "description": "Id of the bike"
+              },
+              "Name": {
+                "type": "string",
+                "description": "Name of the bike"
+              },
+              "Model": {
+                "type": "string",
+                "description": "Model of the bike"
+              },
+              "Year": {
+                  "type":"number",
+                  "description": "Year of release of the bike"
+              }
+            },
+            "required": [
+              "Id",
+              "Name",
+              "Model",
+              "Year"
+            ],
+            "example": {
+              "Id": 1,
+              "Name": "Royal Enfield",
+              "Model": "650cc cruiser bike",
+              "Year": 2020
+            }
+          }
+        },
+        "securitySchemes": {
+          "BasicAuthentication": {
+            "type": "http",
+            "scheme": "basic"
+          }
+          
+        }
+      },
+      "security": [
+        {
+          "BasicAuthentication": []
+        }
+      ]
+  }
