@@ -1,12 +1,12 @@
 const express = require('express');
-const cors = require('cors');
+// const cors = require('cors');
 const db = require('./db/bikes.js');
 const swaggerUi = require("swagger-ui-express");
 const swaggerDocument = require("./swagger.json");
 // const swaggerJsdoc = require("swagger-jsdoc");
 // const swaggerSpec =swaggerJsdoc(swaggerDocument);
 const app = express();
-app.use(cors());
+// app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.get('/bikes', async (req, res) => {
@@ -25,12 +25,12 @@ app.get('/bikes/:id', async (req, res) => {
 });
 app.patch('/bikes/:id', async (req, res) => {
   const bikeUpdate = await db.updateBike(req.params.id, req.body);
-  res.json({ success: `${'updated bike with id number'}${bikeUpdate}` });
+  res.json({ success: `${'updated bike with id number'} ${bikeUpdate}` });
 });
 
 app.delete('/bikes/:id', async (req, res) => {
   const bikeDelete = await db.deleteBike(req.params.id);
-  res.json({ success: `${'bike with id'}${bikeDelete}is deleted` });
+  res.json({ success: 'bike with id' + bikeDelete +  'is deleted' });
 });
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));

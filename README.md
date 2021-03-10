@@ -33,7 +33,7 @@ npm install
 node server.js
 ```
 2. You can access the app at http://localhost:3000
-3. You can have access to swaggerUi open API documentation at http://localhost:3000/api-docs/
+3. You can have an access to swaggerUi open API documentation for  the bikes at http://localhost:3000/api-docs/
 
 <br>
 
@@ -141,6 +141,8 @@ curl -X DELETE http://localhost:3000/bikes/3
 * Javascript Async and await for returning the promise.
 
 * SQLite database browser  for persisting the data.
+
+* SwaggerUi which is a tool for creating open API specification and we can perform all CRUD operations inside SwaggerUi.It provides good collaboration compared to the postman.
 
 <br>
 
